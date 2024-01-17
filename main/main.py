@@ -1,4 +1,4 @@
-import view.ConsoleUI
+from view.console_ui import ConsoleUI
 
 if __name__ == "__main__":
-    view.ConsoleUI.ConsoleUI().print_welcome()
+    ConsoleUI().start()
