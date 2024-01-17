@@ -4,7 +4,7 @@ from view.commands.exit import Exit
 class MainMenu:
     def __init__(self, console_ui):
         self.command_list = [Exit(console_ui)]
-
+#To-do:вместо принт вернуть строку, нарушение солид
     def menu(self):
         for i in range(1, len(self.command_list) + 1):
             print(f"{i}. {self.command_list[i - 1].get_description()}")
