@@ -8,10 +8,7 @@ class Presenter:
         self.service = Service()
 
     def start(self):
-        pass
-
-    def start(self):
         self.ui.start()
 
     def add_note(self, title, text):
-        self.service.add_note(title, text)
+        return self.service.add_note(title, text)

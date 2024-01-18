@@ -10,6 +10,7 @@ class NoteBook:
         note.set_title(title)
         note.set_note_content(content)
         self.notes.append(note)
+        return True
 
     def get_note_book(self):
         return self.notes

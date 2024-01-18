@@ -6,4 +6,4 @@ class Service:
         self.note_book = NoteBook()
 
     def add_note(self, title, content):
-        self.note_book.add_note(title, content)
+        return self.note_book.add_note(title, content)

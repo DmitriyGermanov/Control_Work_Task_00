@@ -28,4 +28,5 @@ class ConsoleUI:
         title = input()
         print("Пожалуйста, введите текст новой заметки:")
         text = input()
-        self.presenter.add_note(title, text)
+        if self.presenter.add_note(title, text):
+            print("Заметка успешно добавлена\n")
