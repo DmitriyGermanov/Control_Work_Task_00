@@ -1,12 +1,15 @@
+from presenter.presenter import Presenter
 from view.main_menu import MainMenu
 
 
 class ConsoleUI:
     def __init__(self):
         self.work = True
+        self.presenter = Presenter(self)
+        self.menu = MainMenu(self)
 
     def print_menu(self):
-        print(MainMenu.menu(MainMenu(self)))
+        print(self.menu.menu())
 
     def set_work(self, work):
         self.work = work
@@ -18,4 +21,11 @@ class ConsoleUI:
             self.execute()
 
     def execute(self):
-        MainMenu.execute(MainMenu(self), int(input()))
+        self.menu.execute(int(input()))
+
+    def add_note(self):
+        print("Пожалуйста, введите заголовок новой заметки:")
+        title = input()
+        print("Пожалуйста, введите текст новой заметки:")
+        text = input()
+        self.presenter.add_note(title, text)
