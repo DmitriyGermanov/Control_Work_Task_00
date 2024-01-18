@@ -6,7 +6,7 @@ class ConsoleUI:
         self.work = True
 
     def print_menu(self):
-        MainMenu.menu(MainMenu(self))
+        print(MainMenu.menu(MainMenu(self)))
 
     def set_work(self, work):
         self.work = work
