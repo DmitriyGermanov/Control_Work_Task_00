@@ -7,3 +7,6 @@ class Service:
 
     def add_note(self, title, content):
         return self.note_book.add_note(title, content)
+
+    def show_all_notes(self):
+        return self.note_book.get_all_notes()

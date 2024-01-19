@@ -1,10 +1,11 @@
 from view.commands.add_note import AddNote
 from view.commands.exit import Exit
+from view.commands.show_all_notes import ShowAllNotes
 
 
 class MainMenu:
     def __init__(self, console_ui):
-        self.command_list = [AddNote(console_ui), Exit(console_ui)]
+        self.command_list = [AddNote(console_ui), ShowAllNotes(console_ui), Exit(console_ui)]
 
     def menu(self):
         menu = ""

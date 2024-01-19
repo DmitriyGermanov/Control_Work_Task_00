@@ -12,3 +12,6 @@ class Presenter:
 
     def add_note(self, title, text):
         return self.service.add_note(title, text)
+
+    def show_all_notes(self):
+        return self.service.show_all_notes()

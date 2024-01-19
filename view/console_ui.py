@@ -30,3 +30,8 @@ class ConsoleUI:
         text = input()
         if self.presenter.add_note(title, text):
             print("Заметка успешно добавлена\n")
+
+    def show_all_notes(self):
+        for i in range(len(self.presenter.show_all_notes())):
+            note = self.presenter.show_all_notes()[i]
+            print(f"{i + 1}. {note.__str__()} \n")
