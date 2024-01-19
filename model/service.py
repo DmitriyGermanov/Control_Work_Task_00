@@ -13,3 +13,14 @@ class Service:
 
     def show_note_by_index(self, index):
         return self.note_book.get_note_by_index(index)
+
+    def update_note(self, index, title, text):
+        self.note_book.update_note(index, title, text)
+        return True
+
+    def show_notes_by_date(self, start_date, end_date):
+        note_by_date_list = self.note_book.get_notes_by_date(start_date, end_date)
+        string_notes_list = ""
+        for i in range(len(note_by_date_list)):
+            string_notes_list = string_notes_list + f"{i + 1}. {note_by_date_list[i].__str__()} \n"
+        return string_notes_list

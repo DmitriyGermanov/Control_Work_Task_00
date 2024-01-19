@@ -19,8 +19,9 @@ class NoteBook:
         self.notes.pop(index)
 
     def update_note(self, index, title, content):
-        self.notes[index].set_note_title(title)
-        self.notes[index].set_note_content(content)
+        self.notes[int(index)].set_title(title)
+        self.notes[int(index)].set_note_content(content)
+        return True
 
     def update_note_content(self, index, content):
         self.notes[index].set_note_content(content)
@@ -54,3 +55,11 @@ class NoteBook:
 
     def delete_all_notes(self):
         self.notes = []
+
+    def get_notes_by_date(self, start_date, end_date):
+        notes = []
+        for i in range(0, len(self.notes)):
+            print(self.notes[i].get_creation_date())
+            if start_date <= self.notes[i].get_creation_date() <= end_date:
+                notes.append(self.notes[i])
+        return notes

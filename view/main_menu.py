@@ -2,12 +2,14 @@ from view.commands.add_note import AddNote
 from view.commands.exit import Exit
 from view.commands.show_all_notes import ShowAllNotes
 from view.commands.show_note_by_index import ShowNoteByIndex
+from view.commands.show_notes_by_date import ShowNotesByDate
+from view.commands.update_not_by_index import UpdateNoteByIndex
 
 
 class MainMenu:
     def __init__(self, console_ui):
         self.command_list = [AddNote(console_ui), ShowAllNotes(console_ui), ShowNoteByIndex(console_ui),
-                             Exit(console_ui)]
+                             UpdateNoteByIndex(console_ui), ShowNotesByDate(console_ui), Exit(console_ui)]
 
     def menu(self):
         menu = ""

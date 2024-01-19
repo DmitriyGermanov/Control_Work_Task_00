@@ -24,5 +24,5 @@ class Note:
 
     def __str__(self):
         return ("Заголовок заметки: " + self.title + "\nСодержание заметки: " + self.note_content + ("\nДата создания "
-                                                                                                    "заметки: ") +
+                                                                                                     "заметки: ") +
                 self.get_creation_date().__str__())

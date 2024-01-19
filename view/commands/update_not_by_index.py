@@ -1,12 +1,12 @@
 from view.commands.command import Command
 
+class UpdateNoteByIndex(Command):
 
-class ShowAllNotes(Command):
     def __init__(self, console_ui):
-        super().__init__(console_ui, "Показать заголовки всех заметок")
+        super().__init__(console_ui, "Внести изменения в заметку по номеру")
 
     def execute(self):
-        self.get_console_ui().show_all_notes()
+        self.console_ui.update_note_by_index()
 
     def get_console_ui(self):
         return super().get_console_ui()

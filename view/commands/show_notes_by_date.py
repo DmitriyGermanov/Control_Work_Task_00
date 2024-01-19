@@ -1,12 +1,11 @@
 from view.commands.command import Command
 
-
-class ShowAllNotes(Command):
+class ShowNotesByDate(Command):
     def __init__(self, console_ui):
-        super().__init__(console_ui, "Показать заголовки всех заметок")
+        super().__init__(console_ui, "Показать заметки за выбранный период")
 
     def execute(self):
-        self.get_console_ui().show_all_notes()
+        self.console_ui.show_notes_by_date()
 
     def get_console_ui(self):
         return super().get_console_ui()
