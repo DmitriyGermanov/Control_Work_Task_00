@@ -34,4 +34,9 @@ class ConsoleUI:
     def show_all_notes(self):
         for i in range(len(self.presenter.show_all_notes())):
             note = self.presenter.show_all_notes()[i]
-            print(f"{i + 1}. {note.__str__()} \n")
+            print(f"{i + 1}. {note.get_title()} \n")
+
+    def show_note_by_index(self):
+        note = self.presenter.show_note_by_index(int(input(f"Введите номер заметки: от 1 до "
+                                                           f"{len(self.presenter.show_all_notes())}\n")) - 1)
+        print(f"{note.__str__()}\n")

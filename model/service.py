@@ -10,3 +10,6 @@ class Service:
 
     def show_all_notes(self):
         return self.note_book.get_all_notes()
+
+    def show_note_by_index(self, index):
+        return self.note_book.get_note_by_index(index)

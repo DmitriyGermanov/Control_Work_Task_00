@@ -23,4 +23,6 @@ class Note:
         self.note_content = note_content
 
     def __str__(self):
-        return "Заголовок заметки: " + self.title + "\nСодержание заметки: " + self.note_content
+        return ("Заголовок заметки: " + self.title + "\nСодержание заметки: " + self.note_content + ("\nДата создания "
+                                                                                                    "заметки: ") +
+                self.get_creation_date().__str__())

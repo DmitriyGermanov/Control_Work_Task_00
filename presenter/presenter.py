@@ -15,3 +15,6 @@ class Presenter:
 
     def show_all_notes(self):
         return self.service.show_all_notes()
+
+    def show_note_by_index(self, index):
+        return self.service.show_note_by_index(index)
