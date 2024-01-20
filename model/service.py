@@ -49,9 +49,12 @@ class Service:
     def read_notes_from_file(self):
         filehandler = FileHandler("notes.json")
         string_notes_list = filehandler.read_file()
-        note_list = string_notes_list.split("\n")
-        for i in range(len(note_list)):
-            note_list[i] = note_list[i].split(";")
-            if note_list[i][0] != "":
-                self.note_book.add_note(note_list[i][0], note_list[i][1])
-        return True
+        if string_notes_list is None:
+            return False
+        else:
+            note_list = string_notes_list.split("\n")
+            for i in range(len(note_list)):
+                note_list[i] = note_list[i].split(";")
+                if note_list[i][0] != "":
+                    self.note_book.add_note(note_list[i][0], note_list[i][1])
+            return True

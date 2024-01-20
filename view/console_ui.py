@@ -19,11 +19,14 @@ class ConsoleUI:
         self.work = work
 
     def start(self):
-        self.presenter.read_notes_from_file()
-        print("Здравствуйте, введите в консоль пункт меню и нажмите Enter")
-        while self.work:
-            self.print_menu()
-            self.execute()
+        if not self.presenter.read_notes_from_file():
+            print("Ошибка! Создайте папку data в основном каталоге!")
+            self.set_work(False, False)
+        else:
+            print("Здравствуйте, введите в консоль пункт меню и нажмите Enter")
+            while self.work:
+                self.print_menu()
+                self.execute()
 
     def execute(self):
         try:
