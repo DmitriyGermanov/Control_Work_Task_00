@@ -27,3 +27,12 @@ class Presenter:
 
     def get_notes_by_title(self, title):
         return self.service.get_notes_by_title(title)
+
+    def delete_note(self, index):
+        return self.service.delete_note(index)
+
+    def write_notes_to_file(self):
+        return self.service.write_notes_to_file()
+
+    def read_notes_from_file(self):
+        return self.service.read_notes_from_file()

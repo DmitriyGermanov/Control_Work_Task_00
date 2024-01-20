@@ -13,10 +13,13 @@ class ConsoleUI:
     def print_menu(self):
         print(self.menu.menu())
 
-    def set_work(self, work):
+    def set_work(self, work, save):
+        if save:
+            self.presenter.write_notes_to_file()
         self.work = work
 
     def start(self):
+        self.presenter.read_notes_from_file()
         print("Здравствуйте, введите в консоль пункт меню и нажмите Enter")
         while self.work:
             self.print_menu()
@@ -36,9 +39,12 @@ class ConsoleUI:
             print("Ошибка. Заметка не добавлена\n")
 
     def show_all_notes(self):
-        for i in range(len(self.presenter.show_all_notes())):
-            note = self.presenter.show_all_notes()[i]
-            print(f"{i + 1}. {note.get_title()}")
+        if not self.presenter.show_all_notes():
+            print("Заметки отсутствуют")
+        else:
+            for i in range(len(self.presenter.show_all_notes())):
+                note = self.presenter.show_all_notes()[i]
+                print(f"{i + 1}. {note.get_title()}")
         print()
 
     def show_note_by_index(self):
@@ -79,3 +85,11 @@ class ConsoleUI:
         else:
             print(f"Список заметок по заголовку: {title}\n")
             print(notes_string)
+
+    def delete_note_by_index(self):
+        index = int(input(f"Введите номер заметки: от 1 до "
+                          f"{len(self.presenter.show_all_notes())}\n")) - 1
+        if self.presenter.delete_note(index):
+            print("Заметка успешно удалена\n")
+        else:
+            print("Ошибка. Заметка не удалена\n")

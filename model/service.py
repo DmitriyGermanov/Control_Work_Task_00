@@ -1,3 +1,4 @@
+from model.file_handler import FileHandler
 from model.note_book import NoteBook
 
 
@@ -31,3 +32,26 @@ class Service:
         for i in range(len(notes_by_title_list)):
             string_notes_list = string_notes_list + f"{i + 1}. {notes_by_title_list[i].__str__()} \n"
         return string_notes_list
+
+    def delete_note(self, index):
+        return self.note_book.delete_note(index)
+
+    def write_notes_to_file(self):
+        string_notes_list = ""
+        note_list = self.note_book.get_all_notes()
+        for i in range(len(note_list)):
+            string_notes_list = (string_notes_list + note_list[i].get_title() + ";" +
+                                 note_list[i].get_note_content() + "\n")
+        filehandler = FileHandler("notes.json")
+        filehandler.write_file(string_notes_list)
+        return True
+
+    def read_notes_from_file(self):
+        filehandler = FileHandler("notes.json")
+        string_notes_list = filehandler.read_file()
+        note_list = string_notes_list.split("\n")
+        for i in range(len(note_list)):
+            note_list[i] = note_list[i].split(";")
+            if note_list[i][0] != "":
+                self.note_book.add_note(note_list[i][0], note_list[i][1])
+        return True

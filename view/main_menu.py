@@ -1,5 +1,7 @@
 from view.commands.add_note import AddNote
+from view.commands.delete_note import DeleteNote
 from view.commands.exit import Exit
+from view.commands.exit_without_save import ExitWithoutSave
 from view.commands.show_all_notes import ShowAllNotes
 from view.commands.show_note_by_index import ShowNoteByIndex
 from view.commands.show_notes_by_date import ShowNotesByDate
@@ -11,7 +13,8 @@ class MainMenu:
     def __init__(self, console_ui):
         self.command_list = [AddNote(console_ui), ShowAllNotes(console_ui), ShowNoteByIndex(console_ui),
                              UpdateNoteByIndex(console_ui), ShowNotesByDate(console_ui),
-                             ShowNotesByTitle(console_ui), Exit(console_ui)]
+                             ShowNotesByTitle(console_ui), DeleteNote(console_ui), Exit(console_ui),
+                             ExitWithoutSave(console_ui)]
 
     def menu(self):
         menu = ""

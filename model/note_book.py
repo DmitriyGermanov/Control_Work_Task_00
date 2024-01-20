@@ -16,7 +16,10 @@ class NoteBook:
         return self.notes
 
     def delete_note(self, index):
-        self.notes.pop(index)
+        if self.notes.pop(index) is not None:
+            return True
+        else:
+            return False
 
     def update_note(self, index, title, content):
         self.notes[int(index)].set_title(title)
