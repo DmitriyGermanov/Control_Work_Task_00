@@ -1,3 +1,4 @@
+import os
 from datetime import date
 
 from presenter.presenter import Presenter
@@ -22,6 +23,7 @@ class ConsoleUI:
         if not self.presenter.read_notes_from_file():
             print("Ошибка! Создайте папку data в основном каталоге!")
             self.set_work(False, False)
+            os.system("pause")
         else:
             print("Здравствуйте, введите в консоль пункт меню и нажмите Enter")
             while self.work:
