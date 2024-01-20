@@ -33,9 +33,11 @@ class NoteBook:
         return self.notes[index]
 
     def get_note_by_title(self, title):
+        search_notes = []
         for note in self.notes:
-            if note.get_note_title() == title:
-                return note
+            if note.get_title() == title:
+                search_notes.append(note)
+        return search_notes
 
     def get_note_by_content(self, content):
         for note in self.notes:

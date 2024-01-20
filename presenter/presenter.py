@@ -24,3 +24,6 @@ class Presenter:
 
     def show_notes_by_date(self, start_date, end_date):
         return self.service.show_notes_by_date(start_date, end_date)
+
+    def get_notes_by_title(self, title):
+        return self.service.get_notes_by_title(title)

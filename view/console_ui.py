@@ -1,4 +1,3 @@
-import datetime
 from datetime import date
 
 from presenter.presenter import Presenter
@@ -69,3 +68,14 @@ class ConsoleUI:
             print("Заметки не найдены\n")
         else:
             print(f"Список заметок в интервале: {start_date.__str__()} до {end_date.__str__()}\n")
+            print(notes_string)
+
+    def show_notes_by_title(self):
+        print("Введите заголовок заметки:")
+        title = input()
+        notes_string = self.presenter.get_notes_by_title(title)
+        if notes_string == "":
+            print("Заметки не найдены\n")
+        else:
+            print(f"Список заметок по заголовку: {title}\n")
+            print(notes_string)

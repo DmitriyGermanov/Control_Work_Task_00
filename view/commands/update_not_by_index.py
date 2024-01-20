@@ -1,9 +1,10 @@
 from view.commands.command import Command
 
+
 class UpdateNoteByIndex(Command):
 
     def __init__(self, console_ui):
-        super().__init__(console_ui, "Внести изменения в заметку по номеру")
+        super().__init__(console_ui, "Внести изменения в заметку по номеру заметки")
 
     def execute(self):
         self.console_ui.update_note_by_index()

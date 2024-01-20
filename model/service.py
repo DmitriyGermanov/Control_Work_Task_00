@@ -24,3 +24,10 @@ class Service:
         for i in range(len(note_by_date_list)):
             string_notes_list = string_notes_list + f"{i + 1}. {note_by_date_list[i].__str__()} \n"
         return string_notes_list
+
+    def get_notes_by_title(self, title):
+        string_notes_list = ""
+        notes_by_title_list = self.note_book.get_note_by_title(title)
+        for i in range(len(notes_by_title_list)):
+            string_notes_list = string_notes_list + f"{i + 1}. {notes_by_title_list[i].__str__()} \n"
+        return string_notes_list
