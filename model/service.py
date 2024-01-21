@@ -41,7 +41,8 @@ class Service:
         note_list = self.note_book.get_all_notes()
         for i in range(len(note_list)):
             string_notes_list = (string_notes_list + note_list[i].get_title() + ";" +
-                                 note_list[i].get_note_content() + "\n")
+                                 note_list[i].get_note_content() + ";" +
+                                 note_list[i].get_creation_date().__str__() + "\n")
         filehandler = FileHandler("notes.json")
         filehandler.write_file(string_notes_list)
         return True
@@ -56,5 +57,5 @@ class Service:
             for i in range(len(note_list)):
                 note_list[i] = note_list[i].split(";")
                 if note_list[i][0] != "":
-                    self.note_book.add_note(note_list[i][0], note_list[i][1])
+                    self.note_book.add_note_with_date(note_list[i][0], note_list[i][1], note_list[i][2])
             return True

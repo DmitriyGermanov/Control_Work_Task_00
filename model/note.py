@@ -19,6 +19,9 @@ class Note:
     def set_title(self, title):
         self.title = title
 
+    def set_creation_date(self, creation_date):
+        self.creation_date = creation_date
+
     def set_note_content(self, note_content):
         self.note_content = note_content
 

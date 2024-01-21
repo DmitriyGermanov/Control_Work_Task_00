@@ -1,4 +1,5 @@
 from model.note import Note
+from datetime import date
 
 
 class NoteBook:
@@ -9,6 +10,14 @@ class NoteBook:
         note = Note()
         note.set_title(title)
         note.set_note_content(content)
+        self.notes.append(note)
+        return True
+
+    def add_note_with_date(self, title, content, creation_date):
+        note = Note()
+        note.set_title(title)
+        note.set_note_content(content)
+        note.set_creation_date(date.fromisoformat(creation_date))
         self.notes.append(note)
         return True
 
